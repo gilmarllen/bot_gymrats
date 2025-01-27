@@ -2,14 +2,13 @@ import 'dotenv/config'
 
 import { formatPrompt, askAI } from './ai'
 import { differenceInMilliseconds, addMinutes } from 'date-fns'
-import { ChallengeID } from './gymrat/types'
 import { getChallenge, sendComment } from './gymrat/index'
 
-const CHALLENGE_ID: ChallengeID = 752473
 const TIME_INTERVAL = 10 // every 10 min
 
 // Main function to fetch and process data
 async function main(challengeID: number) {
+  console.log(`Challenge: ${challengeID}`)
   try {
     const { data: posts } = await getChallenge(challengeID)
 
@@ -36,4 +35,8 @@ async function main(challengeID: number) {
   }
 }
 
-main(CHALLENGE_ID)
+const challengeIDs = process.env.CHALLENGES?.split(' ').map((str) =>
+  parseInt(str),
+)
+
+challengeIDs?.forEach((id) => main(id))
