@@ -30,7 +30,9 @@ async function main(challengeID: number) {
     for (const post of newPosts) {
       console.log(`Processing post with ID: ${post.id}`)
       const AIreply = await askAI(formatPrompt(post))
-      sendComment(post.id, AIreply ?? '')
+      if (AIreply && AIreply.length > 0) {
+        sendComment(post.id, AIreply)
+      }
     }
   } catch (error) {
     console.error('An error occurred:', error)
