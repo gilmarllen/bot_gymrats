@@ -10,7 +10,8 @@ const TIME_INTERVAL = process.env.TIME_INTERVAL
 
 // Main function to fetch and process data
 async function main(challengeID: number) {
-  console.log(`Challenge: ${challengeID}`)
+  console.log(`[${challengeID}] start`)
+
   try {
     const { data: posts } = await getChallenge(challengeID)
 
@@ -24,19 +25,24 @@ async function main(challengeID: number) {
       )
     })
 
-    console.log(`Found ${newPosts.length} new posts to process.`)
+    console.log(
+      `[${challengeID}] Found ${newPosts.length} new posts to process.`,
+    )
 
     // Process the new posts
     for (const post of newPosts) {
-      console.log(`Processing post with ID: ${post.id}`)
+      console.log(`[${challengeID}] Processing post with ID: ${post.id}`)
+
       const AIreply = await askAI(formatPrompt(post))
       if (AIreply && AIreply.length > 0) {
         sendComment(post.id, AIreply)
       }
     }
   } catch (error) {
-    console.error('An error occurred:', error)
+    console.error(`[${challengeID}] An error occurred:`, error)
   }
+
+  console.log(`[${challengeID}] end`)
 }
 
 const challengeIDs = process.env.CHALLENGES?.split(' ').map((str) =>
