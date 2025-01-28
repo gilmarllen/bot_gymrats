@@ -4,7 +4,9 @@ import { formatPrompt, askAI } from './ai'
 import { differenceInMilliseconds, addMinutes } from 'date-fns'
 import { getChallenge, sendComment } from './gymrat/index'
 
-const TIME_INTERVAL = 10 // every 10 min
+const TIME_INTERVAL = process.env.TIME_INTERVAL
+  ? parseInt(process.env.TIME_INTERVAL)
+  : 0
 
 // Main function to fetch and process data
 async function main(challengeID: number) {
