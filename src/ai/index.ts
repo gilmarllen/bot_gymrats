@@ -33,7 +33,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_TOKEN ?? '')
 const model = genAI.getGenerativeModel({
   model: 'gemini-1.5-flash',
   systemInstruction:
-    'Responda como um usuário uma única resposta zoeira para um post/log de atividade física. Use emojis.',
+    'Você é um usuário de uma rede social de atividades físicas. Responda os posts de forma zoeira. Use emojis.',
 })
 
 export async function replyPost(post: PostData) {
