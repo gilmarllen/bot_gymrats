@@ -1,6 +1,6 @@
 import 'dotenv/config'
 
-import { formatPrompt, askAI } from './ai'
+import { replyPost } from './ai'
 import { differenceInMilliseconds, addMinutes } from 'date-fns'
 import { getChallenge, sendComment } from './gymrat/index'
 
@@ -33,7 +33,7 @@ async function main(challengeID: number) {
     for (const post of newPosts) {
       console.log(`[${challengeID}] Processing post with ID: ${post.id}`)
 
-      const AIreply = await askAI(formatPrompt(post))
+      const AIreply = await replyPost(post)
       if (AIreply && AIreply.length > 0) {
         sendComment(post.id, AIreply)
       }

@@ -1,7 +1,8 @@
-import { PostData } from './gymrat/types'
+import { PostData } from '../gymrat/types'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { format, parseISO } from 'date-fns'
 import { pt } from 'date-fns/locale'
+import { prepareMediaPrompt } from './media'
 
 function fieldInfo(
   field: string,
@@ -14,34 +15,42 @@ function fieldInfo(
   return ''
 }
 
-function formatDate(dateString: string) {
-  const date = parseISO(dateString)
-  return format(date, "d 'de' MMMM 'de' yyyy, HH:mm", { locale: pt })
-}
+function formatPrompt(post: PostData) {
+  const distanceInKm = post.distance ? (post.distance * 1.609).toFixed(2) : null
 
-export function formatPrompt(post: PostData) {
   return `
-    Crie uma resposta zoeira para o post/log de atividade física com as seguintes informações:
     ${fieldInfo('Título', post.title)}
     ${fieldInfo('Descrição', post.description)}
     ${fieldInfo('Duração em minutos', post.formatted_details.duration)}
     ${fieldInfo('Calorias', post.formatted_details.calories)}
     ${fieldInfo('Passos', post.formatted_details.steps)}
-    ${fieldInfo('Distância', post.formatted_details.distance)}
+    ${fieldInfo('Distância em Km', distanceInKm)}
     ${fieldInfo('Usuário', post.account.full_name.split(' ')[0])}
-    ${fieldInfo('Mídia(s)', post.media.map(({ url }) => url).join(', '))}
-    ${fieldInfo('Ocorrido em', formatDate(post.occurred_at))}
-
-    A resposta deve ser única e será diretamente redirecionada como comentário no post.
   `
 }
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_TOKEN ?? '')
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+const model = genAI.getGenerativeModel({
+  model: 'gemini-1.5-flash',
+  systemInstruction:
+    'Responda como um usuário uma única resposta zoeira para um post/log de atividade física. Use emojis.',
+})
 
-export async function askAI(prompt: string) {
+export async function replyPost(post: PostData) {
+  const prompt = formatPrompt(post)
+
+  // Filter only images for now
+  const medias = post.media.filter(({ medium_type }) =>
+    medium_type.startsWith('image'),
+  )
+
   try {
-    const result = await model.generateContent(prompt)
+    const mediasPrompt = await prepareMediaPrompt(medias)
+
+    const finalPrompt =
+      mediasPrompt.length > 0 ? [...mediasPrompt, prompt] : prompt
+
+    const result = await model.generateContent(finalPrompt)
     return result.response.text()
   } catch (error) {
     console.error('An error occurred:', error)
