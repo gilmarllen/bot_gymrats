@@ -1,32 +1,43 @@
 import { PostData } from '../gymrat/types'
 import { GoogleGenerativeAI } from '@google/generative-ai'
-import { format, parseISO } from 'date-fns'
-import { pt } from 'date-fns/locale'
 import { prepareMediaPrompt } from './media'
+import { retry } from '../utils'
 
-function fieldInfo(
-  field: string,
-  content: string | number | undefined | null,
-): string {
-  if (content && content.toString().length > 0) {
-    return `${field}: ${content}`
-  }
+interface FieldInfo {
+  name: string
+  content: string | number | undefined | null
+}
 
-  return ''
+function validFieldInfo({ content }: FieldInfo) {
+  return content && content.toString().length > 0
+}
+
+function fieldInfoStringfy({ name, content }: FieldInfo): string {
+  return `${name}: ${content}`
 }
 
 function formatPrompt(post: PostData) {
   const distanceInKm = post.distance ? (post.distance * 1.609).toFixed(2) : null
 
-  return `
-    ${fieldInfo('Título', post.title)}
-    ${fieldInfo('Descrição', post.description)}
-    ${fieldInfo('Duração em minutos', post.formatted_details.duration)}
-    ${fieldInfo('Calorias', post.formatted_details.calories)}
-    ${fieldInfo('Passos', post.formatted_details.steps)}
-    ${fieldInfo('Distância em Km', distanceInKm)}
-    ${fieldInfo('Usuário', post.account.full_name.split(' ')[0])}
-  `
+  const fields: FieldInfo[] = [
+    { name: 'Título', content: post.title },
+    { name: 'Descrição', content: post.description },
+    { name: 'Duração em minutos', content: post.formatted_details.duration },
+    { name: 'Calorias ativas', content: post.formatted_details.calories },
+    { name: 'Passos', content: post.formatted_details.steps },
+    { name: 'Distância em Km', content: distanceInKm },
+    { name: 'Usuário', content: post.account.full_name.split(' ')[0] },
+  ]
+
+  return fields.filter(validFieldInfo).map(fieldInfoStringfy).join('\n')
+}
+
+function checkMultipleOptionsResponse(content: string) {
+  return (
+    content.includes('Opção 1') &&
+    content.includes('Opção 2') &&
+    content.includes('Opção 3')
+  )
 }
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_TOKEN ?? '')
@@ -37,6 +48,7 @@ const model = genAI.getGenerativeModel({
 })
 
 export async function replyPost(post: PostData) {
+  const MAX_RETRIES = 3
   const prompt = formatPrompt(post)
 
   // Filter only images for now
@@ -44,15 +56,28 @@ export async function replyPost(post: PostData) {
     medium_type.startsWith('image'),
   )
 
-  try {
-    const mediasPrompt = await prepareMediaPrompt(medias)
+  const mediasPrompt = await prepareMediaPrompt(medias)
+  const finalPrompt =
+    mediasPrompt.length > 0 ? [...mediasPrompt, prompt] : prompt
 
-    const finalPrompt =
-      mediasPrompt.length > 0 ? [...mediasPrompt, prompt] : prompt
+  if (process.env.NODE_ENV === 'dev') console.log(finalPrompt)
 
-    const result = await model.generateContent(finalPrompt)
-    return result.response.text()
-  } catch (error) {
-    console.error('An error occurred:', error)
-  }
+  return retry(async () => {
+    try {
+      const result = await model.generateContent(finalPrompt)
+      const AIResponse = result.response.text().trim()
+      const hasMultipleOptions = checkMultipleOptionsResponse(AIResponse)
+
+      if (hasMultipleOptions)
+        throw new Error('AI response suggesting multiple options')
+
+      return AIResponse
+    } catch (error) {
+      console.error(
+        `[${post.challenge_id}] An error occurred when getting AI response:`,
+        error,
+      )
+      throw error
+    }
+  }, MAX_RETRIES)
 }

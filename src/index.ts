@@ -33,13 +33,23 @@ async function main(challengeID: number) {
     for (const post of newPosts) {
       console.log(`[${challengeID}] Processing post with ID: ${post.id}`)
 
-      const AIreply = await replyPost(post)
-      if (AIreply && AIreply.length > 0) {
-        sendComment(post.id, AIreply)
+      try {
+        const AIreply = await replyPost(post)
+        if (AIreply && AIreply.length > 0) {
+          sendComment(post.id, AIreply)
+        }
+      } catch (error) {
+        console.error(
+          `[${challengeID}] An error occurred when replying:`,
+          error,
+        )
       }
     }
   } catch (error) {
-    console.error(`[${challengeID}] An error occurred:`, error)
+    console.error(
+      `[${challengeID}] An error occurred when processing post:`,
+      error,
+    )
   }
 
   console.log(`[${challengeID}] end`)
