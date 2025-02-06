@@ -42,9 +42,10 @@ function checkMultipleOptionsResponse(content: string) {
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_TOKEN ?? '')
 const model = genAI.getGenerativeModel({
-  model: 'gemini-1.5-flash',
+  model: 'gemini-2.0-flash-001',
   systemInstruction:
     'Você é um usuário de uma rede social de atividades físicas. Responda os posts de forma zoeira. Use emojis.',
+  generationConfig: { temperature: 1.5, topP: 0.95 },
 })
 
 export async function replyPost(post: PostData) {
