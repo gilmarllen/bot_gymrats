@@ -3,6 +3,10 @@ export async function retry<T>(
   maxTries: number,
 ): Promise<T> {
   let attempts = 0
+
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms))
+
   while (attempts < maxTries) {
     try {
       return await fn()
@@ -11,7 +15,9 @@ export async function retry<T>(
       if (attempts >= maxTries) {
         throw new Error(`Function failed after ${maxTries} attempts`)
       }
+      await delay(2 ** attempts * 1000)
     }
   }
+
   throw new Error('Unexpected error in retry function')
 }
