@@ -30,11 +30,13 @@ function formatPrompt(post: Workout) {
     { name: 'Usuário', content: post.account.full_name.split(' ')[0] },
   ]
 
-  const hasActivityType = post.workout_activities?.length ?? 0 > 0
+  const hasActivityType = post.workout_activities
+    ? post.workout_activities[0].platform_activity !== null
+    : false
 
   if (hasActivityType) {
-    const activityInfo = post.workout_activities![0]
-    const isRunningActivity = activityInfo.platform_activity.id === 55
+    const activityInfo = post.workout_activities![0].platform_activity!
+    const isRunningActivity = activityInfo.id === 55
 
     if (isRunningActivity)
       fields.push({ name: 'Passos', content: post.formatted_details.steps })

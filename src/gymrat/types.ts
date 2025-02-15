@@ -11,7 +11,7 @@ export interface Workout {
   version: string
   description?: string | null
   title: string
-  duration?: number
+  duration?: number | null
   points: any
   account: Account
   media: Media[]
@@ -19,7 +19,7 @@ export interface Workout {
   created_at: string
   distance: string | null
   calories: number | null
-  duration_millis?: number
+  duration_millis?: number | null
   gym_rats_user_id: number
   challenge_id: ChallengeID
   occurred_at: string
@@ -44,7 +44,7 @@ export interface Account {
   instagram: string | null
   email: string
   full_name: string
-  profile_picture_url?: string
+  profile_picture_url?: string | null
   tik_tok: string | null
 }
 
@@ -65,12 +65,12 @@ export interface Reaction {
 }
 
 export interface FormattedDetails {
-  duration?: string
+  duration?: string | null
   points: any
   steps: any
   distance: string | null
   calories: string | null
-  duration_millis?: string
+  duration_millis?: string | null
   activity_metric_amount: any
 }
 
@@ -96,9 +96,9 @@ export interface IntegrationActivity {
   manual: boolean
   start_time: string
   steps: number | null
-  calories: number
+  calories: number | null
   distance_miles: any
-  duration_millis: number
+  duration_millis: number | null
   integration_id: string
   integration_type: string
   platform_activity: PlatformActivity
@@ -110,10 +110,10 @@ export interface Activity {
   points: number | null
   steps: number | null
   distance: string | null
-  calories: number
-  duration_millis: number
+  calories: number | null
+  duration_millis: number | null
   activity_metric_amount: number | null
-  platform_activity: PlatformActivity
+  platform_activity: PlatformActivity | null
   activity_type: unknown | null
-  integration_activity: IntegrationActivity
+  integration_activity: IntegrationActivity | null
 }
