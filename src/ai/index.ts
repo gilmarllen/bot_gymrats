@@ -1,4 +1,4 @@
-import { PostData } from '../gymrat/types'
+import { Workout } from '../gymrat/types'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { prepareMediaPrompt } from './media'
 import { retry } from '../utils'
@@ -16,18 +16,29 @@ function fieldInfoStringfy({ name, content }: FieldInfo): string {
   return `${name}: ${content}`
 }
 
-function formatPrompt(post: PostData) {
-  const distanceInKm = post.distance ? (post.distance * 1.609).toFixed(2) : null
+function formatPrompt(post: Workout) {
+  const distanceInKm = post.distance
+    ? (Number(post.distance) * 1.609).toFixed(2)
+    : null
 
   const fields: FieldInfo[] = [
     { name: 'Título', content: post.title },
     { name: 'Descrição', content: post.description },
     { name: 'Duração em minutos', content: post.formatted_details.duration },
     { name: 'Calorias ativas', content: post.formatted_details.calories },
-    { name: 'Passos', content: post.formatted_details.steps },
     { name: 'Distância em Km', content: distanceInKm },
     { name: 'Usuário', content: post.account.full_name.split(' ')[0] },
   ]
+
+  const hasActivityType = post.workout_activities?.length ?? 0 > 0
+
+  if (hasActivityType) {
+    const activityInfo = post.workout_activities![0]
+    const isRunningActivity = activityInfo.platform_activity.id === 55
+
+    if (isRunningActivity)
+      fields.push({ name: 'Passos', content: post.formatted_details.steps })
+  }
 
   return fields.filter(validFieldInfo).map(fieldInfoStringfy).join('\n')
 }
@@ -45,10 +56,10 @@ const model = genAI.getGenerativeModel({
   model: 'gemini-2.0-flash-001',
   systemInstruction:
     'Você é um expert fitness de musculação e corrida, respondendo a posts em uma rede social de atividades físicas. Você usará um tom zoeiro e descontraído. Com base nos elementos do post e principalmente na imagem, provoque de maneira divertida e elogie o usuário, focando mais na zoação',
-  generationConfig: { temperature: 1.99, topP: 0.99},
+  generationConfig: { temperature: 1.99, topP: 0.99 },
 })
 
-export async function replyPost(post: PostData) {
+export async function replyPost(post: Workout) {
   const MAX_RETRIES = 3
   const prompt = formatPrompt(post)
 

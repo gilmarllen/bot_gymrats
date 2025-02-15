@@ -2,7 +2,7 @@ import 'dotenv/config'
 
 import { replyPost } from './ai'
 import { differenceInMilliseconds, addMinutes } from 'date-fns'
-import { getChallenge, sendComment } from './gymrat/index'
+import { getChallengeWorkouts, sendComment, getWorkout } from './gymrat'
 
 const TIME_INTERVAL = process.env.TIME_INTERVAL
   ? parseInt(process.env.TIME_INTERVAL)
@@ -13,7 +13,7 @@ async function main(challengeID: number) {
   console.log(`[${challengeID}] start`)
 
   try {
-    const { data: posts } = await getChallenge(challengeID)
+    const posts = await getChallengeWorkouts(challengeID)
 
     // Filter posts created in the last TIME_INTERVAL
     const newPosts = posts.filter(({ created_at }) => {
@@ -34,7 +34,9 @@ async function main(challengeID: number) {
       console.log(`[${challengeID}] Processing post with ID: ${post.id}`)
 
       try {
-        const AIreply = await replyPost(post)
+        const fullInfoPost = await getWorkout(post.id)
+
+        const AIreply = await replyPost(fullInfoPost)
         if (AIreply && AIreply.length > 0) {
           sendComment(post.id, AIreply)
         }

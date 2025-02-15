@@ -1,0 +1,111 @@
+{
+  "data": {
+    "id": 133590219,
+    "version": "v2",
+    "description": null,
+    "title": ".",
+    "duration": 37,
+    "points": null,
+    "account": {
+      "id": 291405,
+      "twitter": null,
+      "instagram": null,
+      "email": "",
+      "full_name": "Renato",
+      "profile_picture_url": "https://cdn.gymrats.app/f305249b-9999-4444-a53d-1bc1b0158afe.jpg",
+      "tik_tok": null
+    },
+    "media": [
+      {
+        "id": 143877585,
+        "width": 1400,
+        "source": "library",
+        "url": "https://cdn.gymrats.app/5b80f24b-5555-444-8e07-5f919565f305.jpg",
+        "height": 2488,
+        "medium_type": "image/jpg",
+        "thumbnail_url": null,
+        "aspect_ratio": 0.5627009646302251
+      }
+    ],
+    "steps": 432,
+    "created_at": "2025-02-14T16:58:25.285157Z",
+    "distance": null,
+    "calories": 228,
+    "duration_millis": 2261000,
+    "gym_rats_user_id": 291405,
+    "challenge_id": 675343,
+    "occurred_at": "2025-02-14T12:24:46.000000Z",
+    "activity_metric_amount": null,
+    "workout_activities": [
+      {
+        "id": 113096213,
+        "start_time": "2025-02-14T12:24:46.000000Z",
+        "points": null,
+        "steps": 432,
+        "distance": null,
+        "calories": 228,
+        "duration_millis": 2261000,
+        "activity_metric_amount": null,
+        "platform_activity": {
+          "id": 56,
+          "name": "Strength training",
+          "category": {
+            "id": 15,
+            "name": "Strength training",
+            "key": "strength_training",
+            "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+          },
+          "key": "strength_training",
+          "order": 1,
+          "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+        },
+        "activity_type": null,
+        "integration_activity": {
+          "id": 75113162,
+          "name": "Força",
+          "manual": false,
+          "start_time": "2025-02-14T12:24:46.000000Z",
+          "steps": 432,
+          "calories": 228,
+          "distance_miles": null,
+          "duration_millis": 2261000,
+          "integration_id": "11111111111",
+          "integration_type": "garmin",
+          "platform_activity": {
+            "id": 56,
+            "name": "Strength training",
+            "category": {
+              "id": 15,
+              "name": "Strength training",
+              "key": "strength_training",
+              "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+            },
+            "key": "strength_training",
+            "order": 1,
+            "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+          }
+        }
+      }
+    ],
+    "reactions": [],
+    "photo_url": "https://cdn.gymrats.app/5b80f24b-5555-444-8e07-5f919565f305.jpg",
+    "apple_workout_uuid": null,
+    "activity_type": null,
+    "activity_count": 1,
+    "apple_device_name": null,
+    "apple_source_name": null,
+    "google_place_id": null,
+    "workout_entry_id": 60261327,
+    "activity": null,
+    "formatted_details": {
+      "duration": "37",
+      "points": null,
+      "steps": "432",
+      "distance": null,
+      "calories": "228",
+      "duration_millis": "2,261,000",
+      "activity_metric_amount": null
+    }
+  },
+  "status": "success"
+}

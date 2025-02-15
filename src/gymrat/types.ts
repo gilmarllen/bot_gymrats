@@ -1,12 +1,13 @@
 export type ChallengeID = number
+export type WorkoutID = number
 
-export interface Challenge {
-  data: PostData[]
-  status: string
+export interface WithSuccess<T> {
+  data: T
+  success: string
 }
 
-export interface PostData {
-  id: number
+export interface Workout {
+  id: WorkoutID
   version: string
   description?: string | null
   title: string
@@ -16,13 +17,13 @@ export interface PostData {
   media: Media[]
   steps: any
   created_at: string
-  distance: any
-  calories: any
+  distance: string | null
+  calories: number | null
   duration_millis?: number
   gym_rats_user_id: number
   challenge_id: ChallengeID
   occurred_at: string
-  workout_activities: any
+  workout_activities: Activity[] | null
   activity_metric_amount: any
   reactions: Reaction[]
   photo_url: string
@@ -39,12 +40,12 @@ export interface PostData {
 
 export interface Account {
   id: number
-  twitter: any
-  instagram: any
+  twitter: string | null
+  instagram: string | null
   email: string
   full_name: string
   profile_picture_url?: string
-  tik_tok: any
+  tik_tok: string | null
 }
 
 export interface Media {
@@ -54,7 +55,7 @@ export interface Media {
   url: string
   height: number
   medium_type: string
-  thumbnail_url: string
+  thumbnail_url: string | null
   aspect_ratio: number
 }
 
@@ -67,8 +68,52 @@ export interface FormattedDetails {
   duration?: string
   points: any
   steps: any
-  distance: any
-  calories: any
+  distance: string | null
+  calories: string | null
   duration_millis?: string
   activity_metric_amount: any
+}
+
+export interface ActivityCategory {
+  id: number
+  name: string
+  key: string
+  icon_url: string
+}
+
+export interface PlatformActivity {
+  id: number
+  name: string
+  category: ActivityCategory
+  key: string
+  order: number
+  icon_url: string
+}
+
+export interface IntegrationActivity {
+  id: number
+  name: string
+  manual: boolean
+  start_time: string
+  steps: number | null
+  calories: number
+  distance_miles: any
+  duration_millis: number
+  integration_id: string
+  integration_type: string
+  platform_activity: PlatformActivity
+}
+
+export interface Activity {
+  id: number
+  start_time: string
+  points: number | null
+  steps: number | null
+  distance: string | null
+  calories: number
+  duration_millis: number
+  activity_metric_amount: number | null
+  platform_activity: PlatformActivity
+  activity_type: unknown | null
+  integration_activity: IntegrationActivity
 }

@@ -1,12 +1,13 @@
 import axios from 'axios'
-import { ChallengeID, Challenge } from '../gymrat/types'
-import mockChallenge from '../mock/challenges/752473.json'
+import { WithSuccess, ChallengeID, WorkoutID, Workout } from '../gymrat/types'
+import mockChallengeWorkouts from '../mock/challenges/workouts.json'
+import mockWorkout from '../mock/workout.json'
 
-export async function getChallenge(
+export async function getChallengeWorkouts(
   challengeID: ChallengeID,
-): Promise<Challenge> {
+): Promise<Workout[]> {
   if (process.env.NODE_ENV === 'prod') {
-    const response = await axios.get<Challenge>(
+    const response = await axios.get<WithSuccess<Workout[]>>(
       `https://www.gymrats.app/api/challenges/${challengeID}/workouts?page=0`,
       {
         headers: {
@@ -15,16 +16,30 @@ export async function getChallenge(
       },
     )
 
-    return response.data
+    return response.data.data
   } else {
-    return mockChallenge as Challenge
+    return mockChallengeWorkouts.data as Workout[]
   }
 }
 
-export async function sendComment(
-  workoutID: Challenge['data'][0]['id'],
-  message: string,
-) {
+export async function getWorkout(workoutID: WorkoutID): Promise<Workout> {
+  if (process.env.NODE_ENV === 'prod') {
+    const response = await axios.get<WithSuccess<Workout>>(
+      `https://www.gymrats.app/api/workouts/${workoutID}`,
+      {
+        headers: {
+          Authorization: process.env.AUTHORIZATION_TOKEN,
+        },
+      },
+    )
+
+    return response.data.data
+  } else {
+    return mockWorkout.data as Workout
+  }
+}
+
+export async function sendComment(workoutID: WorkoutID, message: string) {
   try {
     if (process.env.NODE_ENV === 'prod') {
       await axios.post(
