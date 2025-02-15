@@ -52,12 +52,7 @@ export async function replyPost(post: PostData) {
   const MAX_RETRIES = 3
   const prompt = formatPrompt(post)
 
-  // Filter only images for now
-  const medias = post.media.filter(({ medium_type }) =>
-    medium_type.startsWith('image'),
-  )
-
-  const mediasPrompt = await prepareMediaPrompt(medias)
+  const mediasPrompt = await prepareMediaPrompt(post.media)
   const finalPrompt =
     mediasPrompt.length > 0 ? [...mediasPrompt, prompt] : prompt
 

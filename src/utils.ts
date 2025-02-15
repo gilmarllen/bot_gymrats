@@ -1,11 +1,12 @@
+export async function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 export async function retry<T>(
   fn: () => Promise<T>,
   maxTries: number,
 ): Promise<T> {
   let attempts = 0
-
-  const delay = (ms: number) =>
-    new Promise((resolve) => setTimeout(resolve, ms))
 
   while (attempts < maxTries) {
     try {
