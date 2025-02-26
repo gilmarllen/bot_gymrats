@@ -1,5 +1,11 @@
 import axios from 'axios'
-import { WithSuccess, ChallengeID, WorkoutID, Workout } from '../gymrat/types'
+import {
+  WithSuccess,
+  ChallengeID,
+  WorkoutID,
+  Workout,
+  ActivityType,
+} from '../gymrat/types'
 import mockChallengeWorkouts from '../mock/challenges/workouts.json'
 import mockWorkout from '../mock/workout.json'
 
@@ -57,4 +63,15 @@ export async function sendComment(workoutID: WorkoutID, message: string) {
   } catch (error) {
     console.error('Error:', error)
   }
+}
+
+export function getActivityType(workout: Workout): ActivityType {
+  const activityById: Record<number, ActivityType> = {
+    55: 'running',
+    46: 'swimming',
+    58: 'strength training',
+  }
+
+  const activityID = workout.workout_activities?.[0]?.platform_activity?.id ?? 0
+  return activityById[activityID]
 }

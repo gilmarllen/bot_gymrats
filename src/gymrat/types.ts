@@ -6,6 +6,13 @@ export interface WithSuccess<T> {
   success: string
 }
 
+export type ActivityType =
+  | 'running'
+  | 'walking'
+  | 'swimming'
+  | 'strength training'
+  | undefined
+
 export interface Workout {
   id: WorkoutID
   version: string

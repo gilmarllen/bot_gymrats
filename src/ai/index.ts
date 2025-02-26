@@ -2,6 +2,7 @@ import { Workout } from '../gymrat/types'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { prepareMediaPrompt } from './media'
 import { retry } from '../utils'
+import { getActivityType } from '../gymrat'
 
 interface FieldInfo {
   name: string
@@ -30,17 +31,13 @@ function formatPrompt(post: Workout) {
     { name: 'Usuário', content: post.account.full_name.split(' ')[0] },
   ]
 
-  const hasActivityType = post.workout_activities
-    ? post.workout_activities[0].platform_activity !== null
-    : false
+  const activityType = getActivityType(post)
 
-  if (hasActivityType) {
-    const activityInfo = post.workout_activities![0].platform_activity!
-    const isRunningActivity = activityInfo.id === 55
+  if (activityType === 'running' || activityType === 'walking')
+    fields.push({ name: 'Passos', content: post.formatted_details.steps })
 
-    if (isRunningActivity)
-      fields.push({ name: 'Passos', content: post.formatted_details.steps })
-  }
+  if (activityType === 'swimming')
+    fields.push({ name: 'Atividade', content: activityType })
 
   return fields.filter(validFieldInfo).map(fieldInfoStringfy).join('\n')
 }
