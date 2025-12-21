@@ -24,7 +24,7 @@ export async function getChallengeWorkouts(
 
     return response.data.data
   } else {
-    return mockChallengeWorkouts.data as Workout[]
+    return mockChallengeWorkouts.data as unknown as Workout[]
   }
 }
 

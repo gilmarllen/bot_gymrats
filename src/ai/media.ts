@@ -21,6 +21,11 @@ function isVideo({ medium_type }: Media) {
 
 const deleteFile = fs.unlink
 
+function fixMimeType(mimeType: string) {
+  if (mimeType === 'image/jpg') return 'image/jpeg'
+  return mimeType
+}
+
 async function prepareImage({ url, medium_type }: Media) {
   const content = await fetch(url).then((response) => {
     if (response.status !== 200) {
@@ -32,7 +37,7 @@ async function prepareImage({ url, medium_type }: Media) {
   return {
     inlineData: {
       data: Buffer.from(content).toString('base64'),
-      mimeType: medium_type,
+      mimeType: fixMimeType(medium_type),
     },
   }
 }
