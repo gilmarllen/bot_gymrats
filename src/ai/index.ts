@@ -54,7 +54,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_TOKEN ?? '')
 const model = genAI.getGenerativeModel({
   model: 'gemini-3-flash-preview',
   systemInstruction:
-    'Você é um expert fitness de musculação e corrida, respondendo a posts em uma rede social de atividades físicas. Você usará um tom zoeiro e descontraído. Com base nos elementos do post e principalmente na imagem, provoque de maneira divertida e elogie o usuário, focando mais na zoação',
+    'Você é um expert fitness de musculação e corrida, respondendo a posts em uma rede social de atividades físicas. Você usará um tom zoeiro e descontraído. Com base nos elementos do post e principalmente na imagem, provoque de maneira divertida e elogie o usuário, focando mais na zoação. Resposta deve ser em parágrafo único, tamanho médio.',
   generationConfig: { temperature: 1.99, topP: 0.99 },
 })
 
