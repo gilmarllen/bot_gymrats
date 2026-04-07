@@ -1,6 +1,126 @@
 {
   "data": [
     {
+      "id": 133590219,
+      "version": "v2",
+      "description": null,
+      "title": ".",
+      "duration": 37,
+      "points": null,
+      "account": {
+        "id": 291405,
+        "twitter": null,
+        "instagram": null,
+        "email": "",
+        "full_name": "Renato",
+        "profile_picture_url": "https://cdn.gymrats.app/f305249b-9999-4444-a53d-1bc1b0158afe.jpg",
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+      },
+      "media": [
+        {
+          "id": 143877585,
+          "width": 1400,
+          "source": "library",
+          "url": "https://cdn.gymrats.app/5b80f24b-5555-444-8e07-5f919565f305.jpg",
+          "height": 2488,
+          "medium_type": "image/jpg",
+          "thumbnail_url": null,
+          "aspect_ratio": 0.5627009646302251,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
+        }
+      ],
+      "steps": 432,
+      "created_at": "2026-04-07T01:26:27.178201Z",
+      "distance": null,
+      "calories": 228,
+      "duration_millis": 2261000,
+      "gym_rats_user_id": 291405,
+      "challenge_id": 675343,
+      "occurred_at": "2025-02-14T12:24:46.000000Z",
+      "activity_metric_amount": null,
+      "workout_activities": [
+        {
+          "id": 113096213,
+          "start_time": "2025-02-14T12:24:46.000000Z",
+          "points": null,
+          "steps": 432,
+          "distance": null,
+          "calories": 228,
+          "duration_millis": 2261000,
+          "activity_metric_amount": null,
+          "platform_activity": {
+            "id": 56,
+            "name": "Strength training",
+            "category": {
+              "id": 15,
+              "name": "Strength training",
+              "key": "strength_training",
+              "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+            },
+            "key": "strength_training",
+            "order": 1,
+            "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+          },
+          "activity_type": null,
+          "integration_activity": {
+            "id": 75113162,
+            "name": "For\u00c3\u00a7a",
+            "manual": false,
+            "start_time": "2025-02-14T12:24:46.000000Z",
+            "steps": 432,
+            "calories": 228,
+            "distance_miles": null,
+            "duration_millis": 2261000,
+            "integration_id": "11111111111",
+            "integration_type": "garmin",
+            "platform_activity": {
+              "id": 56,
+              "name": "Strength training",
+              "category": {
+                "id": 15,
+                "name": "Strength training",
+                "key": "strength_training",
+                "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+              },
+              "key": "strength_training",
+              "order": 1,
+              "icon_url": "https://firebasestorage.googleapis.com/v0/b/gymrats-1549569453212.appspot.com/o/fst.png?alt=media&token=55dd8146-cb7e-4729-a577-e4b8a315c91d"
+            }
+          }
+        }
+      ],
+      "reactions": [],
+      "photo_url": "https://cdn.gymrats.app/5b80f24b-5555-444-8e07-5f919565f305.jpg",
+      "apple_workout_uuid": null,
+      "activity_type": null,
+      "activity_count": 1,
+      "apple_device_name": null,
+      "apple_source_name": null,
+      "google_place_id": null,
+      "workout_entry_id": 60261327,
+      "activity": null,
+      "formatted_details": {
+        "duration": "37",
+        "points": null,
+        "steps": "432",
+        "distance": null,
+        "calories": "228",
+        "duration_millis": "2,261,000",
+        "activity_metric_amount": null
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": {
+        "latitude": "-20.3161087",
+        "longitude": "-40.3090128"
+      }
+    },
+    {
       "id": 333327190,
       "version": "v2",
       "description": null,
@@ -14,7 +134,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -25,7 +146,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -56,7 +180,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327191,
@@ -72,7 +201,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -83,7 +213,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -114,7 +247,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327192,
@@ -130,7 +268,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -141,7 +280,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -172,7 +314,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327193,
@@ -188,7 +335,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -199,7 +347,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -230,7 +381,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327194,
@@ -246,7 +402,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -257,7 +414,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -288,7 +448,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327195,
@@ -304,7 +469,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -315,7 +481,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -346,7 +515,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327196,
@@ -362,7 +536,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -373,7 +548,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -404,7 +582,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327197,
@@ -420,7 +603,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -431,7 +615,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -462,7 +649,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327198,
@@ -478,7 +670,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -489,7 +682,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -520,7 +716,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327199,
@@ -536,7 +737,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -547,7 +749,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -578,7 +783,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327200,
@@ -594,7 +804,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -605,7 +816,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -636,7 +850,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327201,
@@ -652,7 +871,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -663,7 +883,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -694,7 +917,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327202,
@@ -710,7 +938,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -721,7 +950,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -752,7 +984,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327203,
@@ -768,7 +1005,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -779,7 +1017,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -810,7 +1051,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327204,
@@ -826,7 +1072,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -837,7 +1084,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -868,7 +1118,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327205,
@@ -884,7 +1139,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -895,7 +1151,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -926,7 +1185,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327206,
@@ -942,7 +1206,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -953,7 +1218,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -984,7 +1252,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327207,
@@ -1000,7 +1273,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1011,7 +1285,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1042,7 +1319,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327208,
@@ -1058,7 +1340,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1069,7 +1352,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1100,7 +1386,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327209,
@@ -1116,7 +1407,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1127,7 +1419,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1158,7 +1453,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327210,
@@ -1174,7 +1474,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1185,7 +1486,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1216,7 +1520,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327211,
@@ -1232,7 +1541,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1243,7 +1553,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1274,7 +1587,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327212,
@@ -1290,7 +1608,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1301,7 +1620,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1332,7 +1654,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327213,
@@ -1348,7 +1675,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1359,7 +1687,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1390,7 +1721,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327214,
@@ -1406,7 +1742,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1417,7 +1754,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1448,7 +1788,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327215,
@@ -1464,7 +1809,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1475,7 +1821,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1506,7 +1855,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327216,
@@ -1522,7 +1876,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1533,7 +1888,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1564,7 +1922,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327217,
@@ -1580,7 +1943,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1591,7 +1955,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1622,7 +1989,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327218,
@@ -1638,7 +2010,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1649,7 +2022,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1680,7 +2056,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327219,
@@ -1696,7 +2077,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1707,7 +2089,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1738,7 +2123,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327220,
@@ -1754,7 +2144,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1765,7 +2156,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1796,7 +2190,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327221,
@@ -1812,7 +2211,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1823,7 +2223,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1854,7 +2257,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327222,
@@ -1870,7 +2278,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1881,7 +2290,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1912,7 +2324,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327223,
@@ -1928,7 +2345,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1939,7 +2357,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -1970,7 +2391,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327224,
@@ -1986,7 +2412,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -1997,7 +2424,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -2028,7 +2458,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327225,
@@ -2044,7 +2479,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -2055,7 +2491,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -2086,7 +2525,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327226,
@@ -2102,7 +2546,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -2113,7 +2558,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -2144,7 +2592,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327227,
@@ -2160,7 +2613,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -2171,7 +2625,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -2202,7 +2659,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327228,
@@ -2218,7 +2680,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -2229,7 +2692,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -2260,7 +2726,12 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     },
     {
       "id": 333327229,
@@ -2276,7 +2747,8 @@
         "email": "",
         "full_name": "Renato",
         "profile_picture_url": "https://d1nab7r3hzzrs7.cloudfront.net/baa312b6-81ed-4d83-3333-a2534822a0e9.jpg",
-        "tik_tok": null
+        "tik_tok": null,
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
       },
       "media": [
         {
@@ -2287,7 +2759,10 @@
           "height": 1920,
           "medium_type": "video/mp4",
           "thumbnail_url": "https://cdn.gymrats.app/7f52f7eb-ebbb-3333-993e-1b4b25286b7f.jpg",
-          "aspect_ratio": 0.5625
+          "aspect_ratio": 0.5625,
+          "exif_location": null,
+          "exif_datetime": null,
+          "exif_data": null
         }
       ],
       "steps": null,
@@ -2318,9 +2793,13 @@
         "calories": null,
         "duration_millis": "3,600,000",
         "activity_metric_amount": null
-      }
+      },
+      "comment_count": 0,
+      "verification_method": "camera",
+      "tz": "America/New_York",
+      "pose": null,
+      "coordinates": null
     }
-  ]
-  ,
+  ],
   "status": "success"
 }
