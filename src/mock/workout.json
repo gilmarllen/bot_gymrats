@@ -95,7 +95,10 @@
     "apple_device_name": null,
     "apple_source_name": null,
     "google_place_id": null,
-    "coordinates": null,
+    "coordinates": {
+      "latitude": "-20.3161087",
+      "longitude": "-40.3090128"
+    },
     "workout_entry_id": 60261327,
     "activity": null,
     "formatted_details": {
