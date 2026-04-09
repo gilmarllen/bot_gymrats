@@ -17,7 +17,7 @@ function fieldInfoStringfy({ name, content }: FieldInfo): string {
   return `${name}: ${content}`
 }
 
-function formatPrompt(post: Workout) {
+export function formatPrompt(post: Workout) {
   const distanceInKm = post.distance
     ? (Number(post.distance) * 1.609).toFixed(2)
     : null

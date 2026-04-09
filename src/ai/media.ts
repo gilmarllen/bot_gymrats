@@ -21,7 +21,7 @@ function isVideo({ medium_type }: Media) {
 
 const deleteFile = fs.unlink
 
-function fixMimeType(mimeType: string) {
+export function fixMimeType(mimeType: string) {
   if (mimeType === 'image/jpg') return 'image/jpeg'
   return mimeType
 }
