@@ -1,6 +1,6 @@
-import https from 'https'
-import fs from 'fs'
-import path from 'path'
+import https from 'node:https'
+import fs from 'node:fs'
+import path from 'node:path'
 import { GoogleAIFileManager, FileState } from '@google/generative-ai/server'
 import { Media } from '../gymrat/types'
 import { delay } from '../utils'
@@ -11,6 +11,19 @@ interface DownloadResult {
 
 const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_TOKEN ?? '')
 
+// Exported for test injection — allows mocking Node built-ins without global module mocks
+export const _http = {
+  get: https.get.bind(https) as (
+    url: string,
+    callback: (res: ReturnType<typeof https.get> extends infer R ? R : never) => void,
+  ) => { on(event: string, listener: (err: Error) => void): void },
+}
+
+export const _fs = {
+  createWriteStream: fs.createWriteStream.bind(fs),
+  unlink: fs.unlink.bind(fs),
+}
+
 function isImage({ medium_type }: Media) {
   return medium_type.startsWith('image')
 }
@@ -18,8 +31,6 @@ function isImage({ medium_type }: Media) {
 function isVideo({ medium_type }: Media) {
   return medium_type.startsWith('video')
 }
-
-const deleteFile = fs.unlink
 
 export function fixMimeType(mimeType: string) {
   if (mimeType === 'image/jpg') return 'image/jpeg'
@@ -57,13 +68,13 @@ async function wait4VideoUpload(name: string) {
 }
 
 async function prepareVideo({ url, medium_type }: Media) {
-  const { path } = await downloadVideo(url)
+  const { path: filePath } = await downloadVideo(url)
 
-  const uploadResponse = await fileManager.uploadFile(path, {
+  const uploadResponse = await fileManager.uploadFile(filePath, {
     mimeType: medium_type,
   })
 
-  deleteFile(path, () => {})
+  _fs.unlink(filePath, () => {})
 
   await wait4VideoUpload(uploadResponse.file.name)
 
@@ -80,23 +91,22 @@ async function downloadVideo(url: string): Promise<DownloadResult> {
   const outputPath = path.join(__dirname, fileName)
 
   return new Promise((resolve, reject) => {
-    https
-      .get(url, (response) => {
-        if (response.statusCode !== 200) {
-          response.resume()
-          reject(new Error(`Failed to get '${url}' (${response.statusCode})`))
-          return
-        }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    _http.get(url, (response: any) => {
+      if (response.statusCode !== 200) {
+        response.resume()
+        reject(new Error(`Failed to get '${url}' (${response.statusCode})`))
+        return
+      }
 
-        const fileStream = fs.createWriteStream(outputPath)
-        response.pipe(fileStream)
-        fileStream.on('finish', () => {
-          fileStream.close(() => resolve({ path: outputPath }))
-        })
+      const fileStream = _fs.createWriteStream(outputPath)
+      response.pipe(fileStream)
+      fileStream.on('finish', () => {
+        fileStream.close(() => resolve({ path: outputPath }))
       })
-      .on('error', (err) => {
-        deleteFile(outputPath, () => reject(err))
-      })
+    }).on('error', (err: Error) => {
+      _fs.unlink(outputPath, () => reject(err))
+    })
   })
 }
 

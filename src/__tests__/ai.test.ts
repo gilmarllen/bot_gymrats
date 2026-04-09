@@ -1,27 +1,27 @@
 import { Workout } from '../gymrat/types'
 
-const mockGenerateContent = jest.fn()
+const mockGenerateContent = vi.hoisted(() => vi.fn())
 
-jest.mock('@google/generative-ai', () => ({
-  GoogleGenerativeAI: jest.fn().mockImplementation(() => ({
-    getGenerativeModel: jest.fn().mockReturnValue({
+vi.mock('@google/generative-ai', () => ({
+  GoogleGenerativeAI: vi.fn().mockImplementation(() => ({
+    getGenerativeModel: vi.fn().mockReturnValue({
       generateContent: mockGenerateContent,
     }),
   })),
 }))
 
-jest.mock('../ai/media', () => ({
-  prepareMediaPrompt: jest.fn().mockResolvedValue([]),
+vi.mock('../ai/media', () => ({
+  prepareMediaPrompt: vi.fn().mockResolvedValue([]),
 }))
 
-jest.mock('../gymrat', () => ({
-  getActivityType: jest.fn(),
+vi.mock('../gymrat', () => ({
+  getActivityType: vi.fn(),
 }))
 
 import { formatPrompt, replyPost } from '../ai'
 import { getActivityType } from '../gymrat'
 
-const mockedGetActivityType = getActivityType as jest.MockedFunction<typeof getActivityType>
+const mockedGetActivityType = vi.mocked(getActivityType)
 
 const baseWorkout: Workout = {
   id: 1,
@@ -71,7 +71,7 @@ const baseWorkout: Workout = {
 }
 
 beforeEach(() => {
-  jest.clearAllMocks()
+  vi.clearAllMocks()
   mockedGetActivityType.mockReturnValue(undefined)
 })
 
@@ -141,7 +141,7 @@ describe('replyPost', () => {
   })
 
   it('retries when AI returns multiple options response', async () => {
-    jest.useFakeTimers()
+    vi.useFakeTimers()
 
     mockGenerateContent
       .mockResolvedValueOnce({
@@ -152,27 +152,27 @@ describe('replyPost', () => {
       })
 
     const promise = replyPost(baseWorkout)
-    await jest.runAllTimersAsync()
+    await vi.runAllTimersAsync()
     const result = await promise
 
     expect(result).toBe('Great job!')
     expect(mockGenerateContent).toHaveBeenCalledTimes(2)
 
-    jest.useRealTimers()
+    vi.useRealTimers()
   })
 
   it('throws after max retries when AI always fails', async () => {
-    jest.useFakeTimers()
+    vi.useFakeTimers()
 
     mockGenerateContent.mockRejectedValue(new Error('API error'))
-    jest.spyOn(console, 'error').mockImplementation()
+    vi.spyOn(console, 'error').mockImplementation(() => {})
 
     const promise = replyPost(baseWorkout)
     // Attach rejection handler before running timers to avoid unhandled rejection warning
     const assertion = expect(promise).rejects.toThrow('Function failed after 3 attempts')
-    await jest.runAllTimersAsync()
+    await vi.runAllTimersAsync()
     await assertion
 
-    jest.useRealTimers()
+    vi.useRealTimers()
   })
 })

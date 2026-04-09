@@ -1,10 +1,11 @@
+import { EventEmitter } from 'events'
 import { Media } from '../gymrat/types'
 
-const mockUploadFile = jest.fn()
-const mockGetFile = jest.fn()
+const mockUploadFile = vi.hoisted(() => vi.fn())
+const mockGetFile = vi.hoisted(() => vi.fn())
 
-jest.mock('@google/generative-ai/server', () => ({
-  GoogleAIFileManager: jest.fn().mockImplementation(() => ({
+vi.mock('@google/generative-ai/server', () => ({
+  GoogleAIFileManager: vi.fn().mockImplementation(() => ({
     uploadFile: mockUploadFile,
     getFile: mockGetFile,
   })),
@@ -15,13 +16,7 @@ jest.mock('@google/generative-ai/server', () => ({
   },
 }))
 
-jest.mock('fs', () => ({
-  ...jest.requireActual('fs'),
-  createWriteStream: jest.fn(),
-  unlink: jest.fn(),
-}))
-
-import { fixMimeType, prepareMediaPrompt } from '../ai/media'
+import { fixMimeType, prepareMediaPrompt, _http, _fs } from '../ai/media'
 
 const imageMedia: Media = {
   id: 1,
@@ -46,7 +41,7 @@ const videoMedia: Media = {
 }
 
 beforeEach(() => {
-  jest.clearAllMocks()
+  vi.clearAllMocks()
 })
 
 describe('fixMimeType', () => {
@@ -69,9 +64,9 @@ describe('prepareMediaPrompt', () => {
 
   it('processes an image and returns inline data', async () => {
     const imageBuffer = Buffer.from('fake image content')
-    global.fetch = jest.fn().mockResolvedValue({
+    global.fetch = vi.fn().mockResolvedValue({
       status: 200,
-      arrayBuffer: jest.fn().mockResolvedValue(imageBuffer.buffer),
+      arrayBuffer: vi.fn().mockResolvedValue(imageBuffer.buffer),
     })
 
     const result = await prepareMediaPrompt([imageMedia])
@@ -89,9 +84,9 @@ describe('prepareMediaPrompt', () => {
   it('fixes mime type for image/jpg when processing image', async () => {
     const jpgMedia: Media = { ...imageMedia, medium_type: 'image/jpg' }
     const imageBuffer = Buffer.from('fake image content')
-    global.fetch = jest.fn().mockResolvedValue({
+    global.fetch = vi.fn().mockResolvedValue({
       status: 200,
-      arrayBuffer: jest.fn().mockResolvedValue(imageBuffer.buffer),
+      arrayBuffer: vi.fn().mockResolvedValue(imageBuffer.buffer),
     })
 
     const result = await prepareMediaPrompt([jpgMedia])
@@ -102,11 +97,11 @@ describe('prepareMediaPrompt', () => {
   })
 
   it('skips media when fetch fails and returns null-filtered result', async () => {
-    global.fetch = jest.fn().mockResolvedValue({
+    global.fetch = vi.fn().mockResolvedValue({
       status: 404,
-      arrayBuffer: jest.fn(),
+      arrayBuffer: vi.fn(),
     })
-    const consoleSpy = jest.spyOn(console, 'error').mockImplementation()
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
     const result = await prepareMediaPrompt([imageMedia])
 
@@ -121,31 +116,44 @@ describe('prepareMediaPrompt', () => {
   })
 
   it('processes a video and returns file data', async () => {
-    const https = require('https')
-    const fs = require('fs')
-    const { EventEmitter } = require('events')
+    const mockHttpsGet = vi.fn()
+    const mockCreateWriteStream = vi.fn()
+    const mockUnlink = vi.fn()
+
+    // Inject mocks directly on the exported dependency objects
+    const originalGet = _http.get
+    const originalCreateWriteStream = _fs.createWriteStream
+    const originalUnlink = _fs.unlink
+
+    _http.get = mockHttpsGet as typeof _http.get
+    _fs.createWriteStream = mockCreateWriteStream as typeof _fs.createWriteStream
+    _fs.unlink = mockUnlink as typeof _fs.unlink
 
     const mockResponse = Object.assign(new EventEmitter(), {
       statusCode: 200,
-      resume: jest.fn(),
-      pipe: jest.fn(),
+      resume: vi.fn(),
+      pipe: vi.fn(),
     })
 
     const mockFileStream = Object.assign(new EventEmitter(), {
-      close: jest.fn((cb: () => void) => cb()),
+      close: vi.fn((cb: () => void) => cb()),
     })
 
-    jest.spyOn(https, 'get').mockImplementation((...args: unknown[]) => {
+    mockHttpsGet.mockImplementation((...args: unknown[]) => {
       const cb = args[1] as (res: unknown) => void
       cb(mockResponse)
       mockFileStream.emit('finish')
-      return { on: jest.fn() }
+      return { on: vi.fn() }
     })
 
-    fs.createWriteStream.mockReturnValue(mockFileStream)
+    mockCreateWriteStream.mockReturnValue(mockFileStream)
 
     mockUploadFile.mockResolvedValue({
-      file: { name: 'files/test123', mimeType: 'video/mp4', uri: 'https://ai.example.com/files/test123' },
+      file: {
+        name: 'files/test123',
+        mimeType: 'video/mp4',
+        uri: 'https://ai.example.com/files/test123',
+      },
     })
 
     mockGetFile.mockResolvedValue({
@@ -164,5 +172,10 @@ describe('prepareMediaPrompt', () => {
         fileUri: 'https://ai.example.com/files/test123',
       },
     })
+
+    // Restore originals
+    _http.get = originalGet
+    _fs.createWriteStream = originalCreateWriteStream
+    _fs.unlink = originalUnlink
   })
 })

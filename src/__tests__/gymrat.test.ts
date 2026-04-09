@@ -4,14 +4,14 @@ import { Workout } from '../gymrat/types'
 import mockWorkoutData from '../mock/workout.json'
 import mockChallengeWorkoutsData from '../mock/challenges/workouts.json'
 
-jest.mock('axios')
-const mockedAxios = axios as jest.Mocked<typeof axios>
+vi.mock('axios')
+const mockedAxios = vi.mocked(axios)
 
 const originalNodeEnv = process.env.NODE_ENV
 
 afterEach(() => {
   process.env.NODE_ENV = originalNodeEnv
-  jest.clearAllMocks()
+  vi.clearAllMocks()
 })
 
 function makeWorkoutWithActivityId(id: number): Workout {
@@ -104,7 +104,7 @@ describe('getWorkout', () => {
 describe('sendComment', () => {
   it('logs the message in dev mode', async () => {
     process.env.NODE_ENV = 'dev'
-    const consoleSpy = jest.spyOn(console, 'log').mockImplementation()
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
 
     await sendComment(133590219, 'Great workout!')
 
@@ -129,7 +129,7 @@ describe('sendComment', () => {
   it('catches and logs errors in prod mode', async () => {
     process.env.NODE_ENV = 'prod'
     mockedAxios.post.mockRejectedValue(new Error('Network error'))
-    const consoleSpy = jest.spyOn(console, 'error').mockImplementation()
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
     await expect(sendComment(133590219, 'Hi')).resolves.not.toThrow()
 
