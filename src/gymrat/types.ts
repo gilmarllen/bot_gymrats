@@ -40,6 +40,7 @@ export interface Workout {
   apple_device_name: any
   apple_source_name: any
   google_place_id: any
+  coordinates: { latitude: string; longitude: string } | null
   workout_entry_id: number
   activity: any
   formatted_details: FormattedDetails

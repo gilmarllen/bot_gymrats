@@ -29,6 +29,8 @@ export function formatPrompt(post: Workout) {
     { name: 'Calorias ativas', content: post.formatted_details.calories },
     { name: 'Distância em Km', content: distanceInKm },
     { name: 'Usuário', content: post.account.full_name.split(' ')[0] },
+    { name: 'Latitude', content: post.coordinates?.latitude },
+    { name: 'Longitude', content: post.coordinates?.longitude },
   ]
 
   const activityType = getActivityType(post)
