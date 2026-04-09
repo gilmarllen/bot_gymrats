@@ -11,7 +11,7 @@ export async function retry<T>(
   while (attempts < maxTries) {
     try {
       return await fn()
-    } catch (error) {
+    } catch {
       attempts++
       if (attempts >= maxTries) {
         throw new Error(`Function failed after ${maxTries} attempts`)

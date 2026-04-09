@@ -8,7 +8,8 @@
     "serve": "ts-node ./src/index.ts",
     "start": "node ./dist",
     "lint": "tsc --noEmit && eslint \"**/*.ts\" --quiet --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,9 @@
     "url": "https://github.com/gilmarllen/bot_gymrats/issues"
   },
   "homepage": "https://github.com/gilmarllen/bot_gymrats#readme",
+  "lint-staged": {
+    "*.ts": "eslint --quiet --fix"
+  },
   "devDependencies": {
     "@types/node": "^22.10.10",
     "@typescript-eslint/eslint-plugin": "^8.21.0",
@@ -28,9 +32,12 @@
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
     "prettier": "3.4.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^3.1.1"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
