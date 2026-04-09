@@ -4,7 +4,7 @@
   "description": "Fun bot for Gymrats App",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --build",
+    "build": "tsc -p tsconfig.build.json",
     "serve": "ts-node ./src/index.ts",
     "start": "node ./dist",
     "lint": "tsc --noEmit && eslint \"**/*.ts\" --quiet --fix",
