@@ -1,5 +1,5 @@
 import { EventEmitter } from 'events'
-import { Media } from '../gymrat/types'
+import { Media } from '../../gymrat/types'
 
 const mockUploadFile = vi.hoisted(() => vi.fn())
 const mockGetFile = vi.hoisted(() => vi.fn())
@@ -16,7 +16,7 @@ vi.mock('@google/generative-ai/server', () => ({
   },
 }))
 
-import { fixMimeType, prepareMediaPrompt, _http, _fs } from '../ai/media'
+import { fixMimeType, prepareMediaPrompt, _http, _fs } from './media'
 
 const imageMedia: Media = {
   id: 1,
@@ -126,7 +126,8 @@ describe('prepareMediaPrompt', () => {
     const originalUnlink = _fs.unlink
 
     _http.get = mockHttpsGet as typeof _http.get
-    _fs.createWriteStream = mockCreateWriteStream as typeof _fs.createWriteStream
+    _fs.createWriteStream =
+      mockCreateWriteStream as typeof _fs.createWriteStream
     _fs.unlink = mockUnlink as typeof _fs.unlink
 
     const mockResponse = Object.assign(new EventEmitter(), {

@@ -1,4 +1,4 @@
-import { delay, retry } from '../utils'
+import { delay, retry } from './utils'
 
 describe('delay', () => {
   it('resolves after the specified time', async () => {
@@ -27,7 +27,8 @@ describe('retry', () => {
   })
 
   it('retries on failure and succeeds on second try', async () => {
-    const fn = vi.fn()
+    const fn = vi
+      .fn()
       .mockRejectedValueOnce(new Error('fail'))
       .mockResolvedValue('success')
 
@@ -44,7 +45,9 @@ describe('retry', () => {
 
     const promise = retry(fn, 3)
     // Attach rejection handler before running timers to avoid unhandled rejection warning
-    const assertion = expect(promise).rejects.toThrow('Function failed after 3 attempts')
+    const assertion = expect(promise).rejects.toThrow(
+      'Function failed after 3 attempts',
+    )
     await vi.runAllTimersAsync()
     await assertion
 
@@ -52,7 +55,8 @@ describe('retry', () => {
   })
 
   it('succeeds after multiple failures', async () => {
-    const fn = vi.fn()
+    const fn = vi
+      .fn()
       .mockRejectedValueOnce(new Error('fail 1'))
       .mockRejectedValueOnce(new Error('fail 2'))
       .mockResolvedValue('success')

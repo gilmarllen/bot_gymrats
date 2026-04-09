@@ -1,6 +1,11 @@
 import axios from 'axios'
-import { getChallengeWorkouts, getWorkout, sendComment, getActivityType } from '../gymrat'
-import { Workout } from '../gymrat/types'
+import {
+  getChallengeWorkouts,
+  getWorkout,
+  sendComment,
+  getActivityType,
+} from '.'
+import { Workout } from './types'
 import mockWorkoutData from '../mock/workout.json'
 import mockChallengeWorkoutsData from '../mock/challenges/workouts.json'
 
@@ -39,7 +44,9 @@ describe('getActivityType', () => {
   })
 
   it('returns strength training for activity ID 58', () => {
-    expect(getActivityType(makeWorkoutWithActivityId(58))).toBe('strength training')
+    expect(getActivityType(makeWorkoutWithActivityId(58))).toBe(
+      'strength training',
+    )
   })
 
   it('returns undefined for an unknown activity ID', () => {
@@ -47,12 +54,18 @@ describe('getActivityType', () => {
   })
 
   it('returns undefined when workout_activities is null', () => {
-    const workout = { ...mockWorkoutData.data, workout_activities: null } as unknown as Workout
+    const workout = {
+      ...mockWorkoutData.data,
+      workout_activities: null,
+    } as unknown as Workout
     expect(getActivityType(workout)).toBeUndefined()
   })
 
   it('returns undefined when workout_activities is empty', () => {
-    const workout = { ...mockWorkoutData.data, workout_activities: [] } as unknown as Workout
+    const workout = {
+      ...mockWorkoutData.data,
+      workout_activities: [],
+    } as unknown as Workout
     expect(getActivityType(workout)).toBeUndefined()
   })
 })
@@ -67,7 +80,9 @@ describe('getChallengeWorkouts', () => {
   it('calls the API with correct URL and headers in prod mode', async () => {
     process.env.NODE_ENV = 'prod'
     process.env.AUTHORIZATION_TOKEN = 'test-token'
-    mockedAxios.get.mockResolvedValue({ data: { data: mockChallengeWorkoutsData.data } })
+    mockedAxios.get.mockResolvedValue({
+      data: { data: mockChallengeWorkoutsData.data },
+    })
 
     const result = await getChallengeWorkouts(333373)
 

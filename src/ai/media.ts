@@ -15,7 +15,9 @@ const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_TOKEN ?? '')
 export const _http = {
   get: https.get.bind(https) as (
     url: string,
-    callback: (res: ReturnType<typeof https.get> extends infer R ? R : never) => void,
+    callback: (
+      res: ReturnType<typeof https.get> extends infer R ? R : never,
+    ) => void,
   ) => { on(event: string, listener: (err: Error) => void): void },
 }
 
@@ -92,21 +94,23 @@ async function downloadVideo(url: string): Promise<DownloadResult> {
 
   return new Promise((resolve, reject) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    _http.get(url, (response: any) => {
-      if (response.statusCode !== 200) {
-        response.resume()
-        reject(new Error(`Failed to get '${url}' (${response.statusCode})`))
-        return
-      }
+    _http
+      .get(url, (response: any) => {
+        if (response.statusCode !== 200) {
+          response.resume()
+          reject(new Error(`Failed to get '${url}' (${response.statusCode})`))
+          return
+        }
 
-      const fileStream = _fs.createWriteStream(outputPath)
-      response.pipe(fileStream)
-      fileStream.on('finish', () => {
-        fileStream.close(() => resolve({ path: outputPath }))
+        const fileStream = _fs.createWriteStream(outputPath)
+        response.pipe(fileStream)
+        fileStream.on('finish', () => {
+          fileStream.close(() => resolve({ path: outputPath }))
+        })
       })
-    }).on('error', (err: Error) => {
-      _fs.unlink(outputPath, () => reject(err))
-    })
+      .on('error', (err: Error) => {
+        _fs.unlink(outputPath, () => reject(err))
+      })
   })
 }
 

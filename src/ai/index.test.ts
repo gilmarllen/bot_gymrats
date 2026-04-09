@@ -1,4 +1,4 @@
-import { Workout } from '../gymrat/types'
+import { Workout } from '../../gymrat/types'
 
 const mockGenerateContent = vi.hoisted(() => vi.fn())
 
@@ -10,7 +10,7 @@ vi.mock('@google/generative-ai', () => ({
   })),
 }))
 
-vi.mock('../ai/media', () => ({
+vi.mock('./media', () => ({
   prepareMediaPrompt: vi.fn().mockResolvedValue([]),
 }))
 
@@ -18,7 +18,7 @@ vi.mock('../gymrat', () => ({
   getActivityType: vi.fn(),
 }))
 
-import { formatPrompt, replyPost } from '../ai'
+import { formatPrompt, replyPost } from '.'
 import { getActivityType } from '../gymrat'
 
 const mockedGetActivityType = vi.mocked(getActivityType)
@@ -169,7 +169,9 @@ describe('replyPost', () => {
 
     const promise = replyPost(baseWorkout)
     // Attach rejection handler before running timers to avoid unhandled rejection warning
-    const assertion = expect(promise).rejects.toThrow('Function failed after 3 attempts')
+    const assertion = expect(promise).rejects.toThrow(
+      'Function failed after 3 attempts',
+    )
     await vi.runAllTimersAsync()
     await assertion
 
