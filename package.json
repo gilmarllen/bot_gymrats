@@ -34,13 +34,13 @@
     "eslint-plugin-prettier": "^5.2.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
-    "prettier": "3.4.2",
+    "prettier": "3.8.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "vitest": "^3.1.1"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.21.0",
+    "@google/generative-ai": "^0.24.0",
     "axios": "^1.7.9",
     "date-fns": "^4.1.0",
     "dotenv": "^16.4.7"
