@@ -17,7 +17,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
-            cd ${{ secrets.VPS_PATH }}
+            cd ${{ secrets.VPS_APP_PATH }}
             git pull
             npm ci --omit=dev
             npm run build
