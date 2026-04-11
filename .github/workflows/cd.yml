@@ -22,5 +22,5 @@ jobs:
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd ${{ secrets.VPS_APP_PATH }}
             git pull
-            npm ci --omit=dev
+            HUSKY=0 npm ci
             npm run build
